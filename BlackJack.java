@@ -2,6 +2,7 @@ java.util.ArrayList;
 
 public Class BlackJack {
 	int score = 0;
+	int shuffle = 0;
 	ArrayList<Node> playerHand = new ArrayList<Node>();
 	ArrayList<Node> dealerHand = new ArrayList<Node>();	
 	
@@ -82,8 +83,23 @@ public Class BlackJack {
 
 	public playerLose() {
 		score -= 1;
+		newGame();
 	}
 	
 	public playerWin() {
-		score += 1;
+		shuffle += 1;
+		newGame();
 	}
+		
+	public gameTie() {
+		newGame();
+	}
+		
+	public newGame() {
+		shuffle += 1;
+		if (shuffle > 5) {
+			shuffle();
+		}
+		dealCards();
+	}
+			
